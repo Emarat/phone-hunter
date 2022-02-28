@@ -16,11 +16,15 @@
         <h1>Find Your Desire Phone!</h1>
     </header>
     <main>
-        <div class="input-group mb-3">
-            <input type="text" class="form-control" placeholder="Write Phone Names" aria-label="Write Phone Names"
-                aria-describedby="button-addon2">
-            <button class="btn btn-secondary" type="button" id="button-addon2">Search</button>
+        <!-- input field & search button  -->
+        <div class="input-group mb-3 w-50 mx-auto">
+            <input type="text" class="form-control" id="inputForm" placeholder="Write Phone Names"
+                aria-label="Write Phone Names" aria-describedby="button-addon2">
+            <button onclick="inputField()" class="btn btn-secondary" type="button" id="button-addon2">Search</button>
         </div>
+
+        <!-- search result -->
+
     </main>
     <script src="js/api.js"></script>
 </body>
