@@ -27,7 +27,7 @@ const searchResult = (data) => {
     const searchResult = document.getElementById('search-result');
     // error-- no phone found
     if (data.length == 0) {
-        error.innerText = 'No Phone Found';
+        error.innerText = 'NO Results Found';
     }
     searchResult.innerHTML = '';
     const Data = data.slice(0, 20);  /*  results can not show more than 20*/
@@ -36,7 +36,7 @@ const searchResult = (data) => {
         const div = document.createElement('div');
         div.classList.add('col');
         div.innerHTML = `
-    <div class="card h-100">
+    <div class="card h-100 bg-dark text-white border-secondary" style="max-width: 18rem;">
              <img src="${singleData.image}" class="card-img-top" alt="...">
          <div class="card-body">
              <h5 class="card-title">${singleData.phone_name} </h5>
@@ -67,7 +67,7 @@ const displayDetails = (data) => {
     const div = document.createElement('div');
     cardDetails.innerHTML = '';
     div.innerHTML = `
-    <div class="card">
+    <div class="card bg-dark text-white border-secondary mb-3">
                 <img class="card-img-top" src="${data.image}" alt="Card image cap">
                 <div class="card-body">
                     <p><b>Model:</b> ${data.name}</p>
