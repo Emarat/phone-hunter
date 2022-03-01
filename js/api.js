@@ -65,6 +65,7 @@ const displayDetails = (data) => {
     console.log(data);
     const cardDetails = document.getElementById('cardDetails');
     const div = document.createElement('div');
+    cardDetails.innerHTML = '';
     div.innerHTML = `
     <div class="card">
                 <img class="card-img-top" src="${data.image}" alt="Card image cap">
