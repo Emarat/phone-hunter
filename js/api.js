@@ -21,11 +21,13 @@ const inputField = () => {
             .then(res => res.json())
             .then(res => searchResult(res.data))
     }
+
 }
 
 const searchResult = (data) => {
     const searchResult = document.getElementById('search-result');
     // error-- no phone found
+    cardDetails.textContent = '';
     if (data.length == 0) {
         error.innerText = 'NO Results Found';
     }
@@ -36,7 +38,7 @@ const searchResult = (data) => {
         const div = document.createElement('div');
         div.classList.add('col');
         div.innerHTML = `
-    <div class="card h-100 bg-dark text-white border-secondary" style="max-width: 18rem;">
+    <div class="card h-100 bg-dark text-white border-secondary" style="max-width: 19rem;">
              <img src="${singleData.image}" class="card-img-top" alt="...">
          <div class="card-body">
              <h5 class="card-title">${singleData.phone_name} </h5>
@@ -62,30 +64,30 @@ const loadDetails = (slug) => {
 }
 
 const displayDetails = (data) => {
-    console.log(data);
+    // console.log(data);
     const cardDetails = document.getElementById('cardDetails');
     const div = document.createElement('div');
-    cardDetails.innerHTML = '';
+    cardDetails.textContent = '';
     div.innerHTML = `
     <div class="card bg-dark text-white border-secondary mb-3">
                 <img class="card-img-top" src="${data.image}" alt="Card image cap">
                 <div class="card-body">
                     <p><b>Model:</b> ${data.name}</p>
                     <p><b>Brand:</b> ${data.brand}</p>
-                    <p><b>Release Date:</b> ${data.releaseDate}</p>
+                    <p><b>Release Date:</b> ${data.releaseDate || "N/A"}</p>
                     <h3 class = "text-center"> MainFeatures </h3>
                     <p><b>Storage:</b> ${data.mainFeatures.storage}</p>
                     <p><b>Display Size:</b> ${data.mainFeatures.displaySize}</p>
                     <p><b>ChipSet:</b> ${data.mainFeatures.chipSet}</p>
                     <p><b>Memory:</b> ${data.mainFeatures.memory}</p>
                     <p><b>Sensors:</b> ${data.mainFeatures.sensors}</p>
-                    <h3 class = "text-center"> Others </h3>
-                    <p><b>WLAN:</b> ${data.others.WLAN}</p>
-                    <p><b>Bluetooth:</b> ${data.others.Bluetooth}</p>
-                    <p><b>GPS:</b> ${data.others.GPS}</p>
-                    <p><b>NFC:</b> ${data.others.NFC}</p>
-                    <p><b>Radio:</b> ${data.others.Radio}</p>
-                    <p><b>USB:</b> ${data.others.USB}</p>
+                    <h3 class = "text-center"> OTHERS </h3>
+                    <p><b>WLAN:</b> ${data.others?.WLAN ?? "N/A"}</p>
+                    <p><b>Bluetooth:</b> ${data.others?.Bluetooth ?? "N/A"}</p>
+                    <p><b>GPS:</b> ${data.others?.GPS ?? "N/A"}</p>
+                    <p><b>NFC:</b> ${data.others?.NFC ?? "N/A"}</p>
+                    <p><b>Radio:</b> ${data.others?.Radio ?? "N/A"}</p>
+                    <p><b>USB:</b> ${data.others?.USB ?? "N/A"}</p>
                     
                 </div>
             </div>
