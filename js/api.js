@@ -39,7 +39,7 @@ const searchResult = (data) => {
         const div = document.createElement('div');
         div.classList.add('col');
         div.innerHTML = `
-    <div class="card h-100 bg-dark text-white border-secondary" style="max-width: 19rem;">
+    <div class="card h-100 bg-dark text-white border-secondary">
              <img src="${singleData.image}" class="card-img-top" alt="...">
          <div class="card-body">
              <h5 class="card-title">${singleData.phone_name} </h5>
