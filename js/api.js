@@ -10,6 +10,7 @@ const inputField = () => {
     /* empty input field search error validation */
     if (searchText == '') {
         error.innerText = 'Please Write a Valid Keyword';
+
     } else {
         error.innerText = '';
         // fetch api 
